@@ -1,16 +1,19 @@
 import express from 'express'
 import dotenv from  'dotenv'
 import colors from 'colors'
+import { notFound, errorHandler } from './middlewear/errorMiddlewear.js'
 import logger from './middlewear/logger.js'
-import errorHandler from './middlewear/error.js'
 import connectDB from './config/db.js'
 import productRoutes from './routes/productRouter.js'
+import userRoutes from './routes/userRouter.js'
 
 dotenv.config()
 
 connectDB()
 
 const app = express()
+
+app.use(express.json())
 
 // Middlewear
 app.use(logger)
@@ -20,8 +23,10 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
 
 // error handling
+app.use(notFound)
 app.use(errorHandler)
 
 const PORT =  process.env.PORT || 5000
