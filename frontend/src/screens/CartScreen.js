@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link, useParams, useLocation } from 'react-router-dom'
+import { Link, useParams, useLocation, useNavigate } from 'react-router-dom'
 import { Form, Row, Col, Image,  ListGroup, Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
@@ -14,6 +14,7 @@ const CartScreen = () => {
   const qty = location.search ? Number(location.search.split('=')[1]) : 1
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const cart = useSelector(state => state.cart)
   const { cartItems } = cart
@@ -31,7 +32,7 @@ const CartScreen = () => {
   }
 
   const checkoutHandler = () => {
-
+    navigate('/login?redirect=/shipping')
   }
   
 
