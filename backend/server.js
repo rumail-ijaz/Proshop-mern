@@ -4,8 +4,9 @@ import colors from 'colors'
 import { notFound, errorHandler } from './middlewear/errorMiddlewear.js'
 import logger from './middlewear/logger.js'
 import connectDB from './config/db.js'
-import productRoutes from './routes/productRouter.js'
-import userRoutes from './routes/userRouter.js'
+import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+import orderRoutes from './routes/orderRoutes.js'
 
 dotenv.config()
 
@@ -24,6 +25,7 @@ app.get('/',(req,res)=>{
 
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes)
 
 // error handling
 app.use(notFound)
