@@ -10,8 +10,6 @@ const ShippingScreen = ( ) => {
   const cart = useSelector((state) => state.cart)
   const { shippingAddress } = cart
 
-  console.log(shippingAddress,'ddd');
-
   const [address, setAddress] = useState(shippingAddress.address)
   const [city, setCity] = useState(shippingAddress.city)
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode)
