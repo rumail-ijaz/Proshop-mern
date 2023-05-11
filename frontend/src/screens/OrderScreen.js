@@ -22,7 +22,7 @@ const OrderScreen = () => {
   const orderPay = useSelector((state) => state.orderPay)
   const { loading: loadingPay, success: successPay } = orderPay
 
-  if(!loading){
+  if(!loading && order){
     const addDecimals = (num) => {
         return (Math.round(num * 100) / 100 ).toFixed(2)
       }
@@ -125,10 +125,6 @@ const OrderScreen = () => {
                             ))}
                         </ListGroup>
                     )}
-                    <p>
-                        <strong>Method:</strong>
-                        {order.paymentMethod}
-                    </p>
                 </ListGroup.Item>
             </ListGroup>
         </Col>
