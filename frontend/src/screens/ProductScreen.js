@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Form, Row, Col, Image,  ListGroup, Card, Button, ListGroupItem } from 'react-bootstrap'
+import { Form, Row, Col, Image,  ListGroup, Card, Button } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -37,7 +37,7 @@ const ProductScreen = () => {
     }
    dispatch(listProductDetails(id))
     
-  }, [dispatch, id], successProductReview)
+  }, [dispatch, id, successProductReview])
 
 
   const addToCartHandler = () => {
